@@ -1,2 +1,0 @@
-class Speech < ApplicationRecord
-end

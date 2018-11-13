@@ -10,19 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_213425) do
+ActiveRecord::Schema.define(version: 2018_11_13_181331) do
 
-  create_table "speeches", force: :cascade do |t|
-    t.string "input"
-    t.string "translation"
-    t.integer "user_id"
+  create_table "channels", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_speeches_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "speech"
+    t.string "translation"
+    t.string "username"
+    t.integer "channel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user_name"
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
