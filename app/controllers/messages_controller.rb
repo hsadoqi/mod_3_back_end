@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 
     # GET /messages 
     def index 
-        @messages = Channel.all 
+        @messages = Message.all 
 
         render json: @messages
     end 
@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
 
     # POST /messages
     def create 
-        @message = Channel.new(message_params)
+        @message = Message.new(message_params)
         if @message.save 
             render json: @message 
         else 
@@ -40,10 +40,10 @@ class MessagesController < ApplicationController
     private 
 
     def set_message 
-        @message = Channel.find(params[:id])
+        @message = Message.find(params[:id])
     end 
 
     def message_params
-        params.require(:message).permit(:name)
+        params.require(:message).permit(:speech, :translation, :user_id, :channel_id, :username)
     end
 end
