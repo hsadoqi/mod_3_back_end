@@ -18,6 +18,8 @@ class MessagesController < ApplicationController
     def create 
         
         @message = Message.new(message_params)
+        @message.translation = @message.start_translation
+        
         if @message.save
             render json: @message
         else
