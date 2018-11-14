@@ -19,5 +19,5 @@ end
 end 
 
 30.times do 
-    Message.create(user_id: Faker::Number.between(121, 140), channel_id: Faker::Number.between(61, 70), speech: Faker::Hipster.paragraph, translation: Faker::Hipster.paragraph, username: Faker::FamilyGuy.character)
+    Message.create(user_id: Faker::Number.between(1, 20), channel_id: Faker::Number.between(1, 10), speech: Faker::Hipster.paragraph, translation: Faker::Hipster.paragraph, username: Faker::FamilyGuy.character)
 end 
