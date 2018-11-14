@@ -1,9 +1,15 @@
 class MessagesController < ApplicationController
     before_action :set_message, only: [:show, :update, :destroy]
 
+
     # GET /messages
     def index
         @messages = Channel.all
+
+    # GET /messages
+    def index
+        @messages = Message.all
+
 
         render json: @messages
     end
@@ -14,8 +20,9 @@ class MessagesController < ApplicationController
     end
 
     # POST /messages
+
     def create
-        
+
         @message = Channel.new(message_params)
         if @message.save
             render json: @message
@@ -23,6 +30,16 @@ class MessagesController < ApplicationController
             render json: @message.errors.full_messages
         end
     end
+
+    def create
+        @message = Message.new(message_params)
+        if @message.save
+            render json: @message
+        else
+            render json: @message.errors.full_messages
+        end
+    end
+
 
     # PATCH/PUT /messages/:id
     def update
@@ -40,11 +57,17 @@ class MessagesController < ApplicationController
 
     private
 
+
     def set_message
         @message = Channel.find(params[:id])
     end
 
+    def set_message
+        @message = Message.find(params[:id])
+    end
+
+
     def message_params
-        params.require(:message).permit(:name)
+        params.require(:message).permit(:speech, :translation, :user_id, :channel_id, :username)
     end
 end

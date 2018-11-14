@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+Channel.destroy_all
+Message.destroy_all
+
+10.times do 
+    Channel.create(name: Faker::FamilyGuy.location)
+end 
+
+20.times do 
+    User.create(username: Faker::FamilyGuy.character)
+end 
+
+30.times do 
+    Message.create(user_id: Faker::Number.between(121, 140), channel_id: Faker::Number.between(61, 70), speech: Faker::Hipster.paragraph, translation: Faker::Hipster.paragraph, username: Faker::FamilyGuy.character)
+end 
