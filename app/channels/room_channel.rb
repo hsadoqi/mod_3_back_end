@@ -9,7 +9,7 @@ class RoomChannel < ApplicationCable::Channel
 
   def send_text(data)
     @message = Message.new(speech: data['speech'], user_id: data['user_id'], channel_id: data['channel_id'], username: data['username'])
-    @message.translation = @message.start_translation
+    @message.translation = @message.start_translation(@message.channel.lang)
     @message.save
 
     ActionCable.server.broadcast("RoomChannel", @message)

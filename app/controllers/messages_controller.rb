@@ -1,3 +1,4 @@
+# require 'pry'
 class MessagesController < ApplicationController
     before_action :set_message, only: [:show, :update, :destroy]
 
@@ -16,9 +17,10 @@ class MessagesController < ApplicationController
 
     # POST /messages
     def create 
-        
+        # byebug
         @message = Message.new(message_params)
-        @message.translation = @message.start_translation
+        lang = @message.channel.lang
+        @message.translation = @message.start_translation(lang)
         
         if @message.save
             # ActionCable.server.broadcast 'room_channel',

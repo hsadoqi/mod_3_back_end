@@ -10,9 +10,20 @@ User.destroy_all
 Channel.destroy_all
 Message.destroy_all
 
-10.times do 
-    Channel.create(name: Faker::FamilyGuy.location)
-end 
+# 10.times do 
+#     Channel.create(name: Faker::FamilyGuy.location, lang: ["fr", "it", "de", "es", "ar", "rv", "pl"].sample)
+# end 
+
+Channel.create(name: "Polish", lang: "pl")
+Channel.create(name: "French", lang: "fr")
+Channel.create(name: "German", lang: "de")
+Channel.create(name: "Italian", lang: "it")
+Channel.create(name: "Arabic", lang: "ar")
+Channel.create(name: "Spanish", lang: "es")
+Channel.create(name: "Russian", lang: "rv")
+Channel.create(name: "Chinese", lang: "cn")
+Channel.create(name: "Punjabi", lang: "pa")
+
 
 20.times do 
     User.create(username: Faker::FamilyGuy.character)
