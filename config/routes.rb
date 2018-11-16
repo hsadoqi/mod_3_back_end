@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :users
   resources :messages 
   resources :channels
+
+  mount ActionCable.server, at: '/cable'
 end

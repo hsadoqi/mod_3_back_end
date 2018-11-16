@@ -1,5 +1,5 @@
 class MessageSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :channel_id, :speech, :translation
-  has_one :user 
-  has_one :channel
+  attributes :id, :user_id, :channel_id, :speech, :translation, :created_at, :username
+  belongs_to :user 
+  belongs_to :channel
 end

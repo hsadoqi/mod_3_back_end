@@ -21,6 +21,10 @@ class MessagesController < ApplicationController
         @message.translation = @message.start_translation
         
         if @message.save
+            # ActionCable.server.broadcast 'room_channel',
+            #                 {content:  @message.translation,
+            #                 username: @message.user.username}
+            # head :ok
             render json: @message
         else
             render json: @message.errors.full_messages

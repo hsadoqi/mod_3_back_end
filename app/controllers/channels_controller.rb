@@ -5,12 +5,12 @@ class ChannelsController < ApplicationController
     # GET /channels 
     def index 
         @channels = Channel.all 
-
         render json: @channels
     end 
 
     # GET /channels/:id
     def show 
+        @channel.messages.sort_by {|message| message.created_at}
         render json: @channel
     end 
 
