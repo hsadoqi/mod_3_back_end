@@ -20,8 +20,6 @@ Channel.create(name: "German", lang: "de")
 Channel.create(name: "Italian", lang: "it")
 Channel.create(name: "Arabic", lang: "ar")
 Channel.create(name: "Spanish", lang: "es")
-Channel.create(name: "Russian", lang: "rv")
-Channel.create(name: "Chinese", lang: "cn")
 Channel.create(name: "Punjabi", lang: "pa")
 
 
